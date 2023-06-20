@@ -1,6 +1,10 @@
 #parent image download form either local computer  or docker hub repository
 FROM node:16-alpine
 
+#install project dependency on this image
+#RUN: to specify a command(build time)
+RUN npm install -g nodemon
+
 #WORKDIR: Working directory for the docker image
 #tells docker when we run cmd in the future after this instruction do it inside this directory
 WORKDIR /app
@@ -12,7 +16,7 @@ WORKDIR /app
 COPY package.json .
 
 #install project dependency on this image
-#RUN: to specify a command(buidl time)
+#RUN: to specify a command(build time)
 RUN npm install
 
 COPY . .
@@ -22,5 +26,5 @@ EXPOSE 4000
 
 #CMD: specify any command that should be run at the run time when the container begains to run
 #CMD: written as array of string
-CMD [ "node", "app.js" ]
+CMD [ "npm", "run", "dev" ]
 

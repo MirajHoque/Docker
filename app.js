@@ -8,8 +8,8 @@ app.use(cors())
 app.get('/', (req, res) => {
   res.json([
     {
-      "id":"0",
-      "title":"Book Review: The Bear & The Nightingale"
+      "id":"1",
+      "title":"Book Review: The Bear & The Nightingale ABC"
     },
     {
       "id":"2",
@@ -23,5 +23,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(4000, () => {
-  console.log('listening for requests on port 4000')
+  console.log('listening for requests on port 4000......')
 })
