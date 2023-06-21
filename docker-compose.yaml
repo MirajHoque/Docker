@@ -1,0 +1,19 @@
+#tell docker how to build image for this service also how to run container for it.
+#services: basically the project that we want images and container for.
+services:
+  api:
+    build: ./api #build the image(relative path to the dockerfile)
+    container_name: api_c #tell docker what to call our container
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./api:/app
+      - /app/node_modules
+  
+  myblog:  
+    build:  ./myblog
+    container_name: myblog_c
+    ports:
+      -  '3000:3000'
+    stdin_open: true #
+    tty: true
